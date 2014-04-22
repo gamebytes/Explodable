@@ -11,14 +11,18 @@
 			// enable or disable vsync, as well as toggle fullscreen.
 			bool vsyncEnabled, fullscreen, noBorder, resizable;
 			// the window that was created
-			sf::RenderWindow window;
+			sf::RenderWindow* window;
 			public:
 				Main(int width, int height, sf::String title);
 				void setTitle(sf::String);
 				void setFullscreen(bool fullscreen);
 				void setVsync(bool vsync);
 				void setFPS(int fps);
-				sf::RenderWindow getWindow();
+				void defaultUpdateWindow();
+				void update();
+				void render();
+				void dispose();
+				sf::RenderWindow* getWindow();
 		};
 	}
 #endif
