@@ -71,9 +71,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExplodableEntity.cpp" />
     <ClCompile Include="ExplodableMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ExplodableEntity.hpp" />
     <ClInclude Include="ExplodableMain.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

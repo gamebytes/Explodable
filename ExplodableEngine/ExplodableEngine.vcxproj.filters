@@ -18,9 +18,15 @@
     <ClCompile Include="ExplodableMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ExplodableEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExplodableMain.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplodableEntity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
