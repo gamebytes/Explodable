@@ -71,10 +71,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExplodableComponent.cpp" />
     <ClCompile Include="ExplodableEntity.cpp" />
     <ClCompile Include="ExplodableMain.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ExplodableComponent.hpp" />
     <ClInclude Include="ExplodableEntity.hpp" />
     <ClInclude Include="ExplodableMain.hpp" />
   </ItemGroup>

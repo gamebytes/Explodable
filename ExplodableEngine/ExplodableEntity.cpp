@@ -6,6 +6,8 @@
 
 #include "ExplodableEntity.hpp"
 
+#include "ExplodableComponent.hpp"
+
 #include <SFML/System.hpp>
 
 #include <SFML/Graphics.hpp>
@@ -15,15 +17,33 @@ namespace Explodable {
 	   this->x = x;
 	   this->y = y;
 	   this->size = size;
-	   this->shape = sf::ConvexShape();
-	   shape.setPointCount(4);
-	   shape.setPoint(0, sf::Vector2f(-this->size, -this->size));
-	   shape.setPoint(1, sf::Vector2f(this->size, 0));
-	   shape.setPoint(2, sf::Vector2f(this->size, this->size));
-	   shape.setPoint(3, sf::Vector2f(0, 0));
-	   shape.setPosition(sf::Vector2f(x, y));
+	   this->shape = sf::CircleShape(80, 8);
+	   shape.setPosition(sf::Vector2f((float)x, (float)y));
 	}
-	sf::ConvexShape Entity::getShape() {
+	void Entity::addComponent(Component* component) {
+		component->initComponent(this);
+		components[component->name] = component;
+	}
+	void Entity::removeComponent(string name) {
+		if (components.count(name) != 0) {
+			delete components[name];
+			components.erase(name);
+			printf("Component removed.");
+		}
+		else {
+			printf("Component not found.");
+		}
+	}
+	Component* Entity::getComponent(string name) {
+		if (components.count(name) != 0) {
+			return components[name];
+			printf("Component found.");
+		}
+		else {
+			printf("Component not found.");
+		}
+	}
+	sf::CircleShape& Entity::getShape() {
 		return shape;
 	}
 }

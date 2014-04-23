@@ -5,16 +5,25 @@
 */
 #ifndef EXPLODABLE_ENTITY
 #define EXPLODABLE_ENTITY
-	#include <vector>
+	#include "ExplodableComponent.hpp"
+	#include <map>
+	#include <string>
 	#include <SFML/Graphics.hpp>
+	using std::vector;
+	using std::string;
+	using std::map;
 	namespace Explodable {
 		class Entity {
 			int x, y, size;
-			sf::ConvexShape shape;
+			sf::CircleShape shape;
+			map<string, Component*> components;
 			public:
 				Entity() {}
 				Entity(int x, int y, int size);
-				sf::ConvexShape getShape();
+				void addComponent(Component* newComponent);
+				void removeComponent(string name);
+				Component* getComponent(string name);
+				sf::CircleShape& getShape();
 		};
 	}
 #endif
