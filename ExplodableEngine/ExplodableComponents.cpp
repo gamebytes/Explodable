@@ -4,6 +4,7 @@
 namespace Explodable {
 	namespace Components {
 		// MOVEMENT COMPONENT
+		// Allow's entity movement.
 		void MovementComponent::init() {
 	
 		}
@@ -33,6 +34,7 @@ namespace Explodable {
 		}
 
 		// COLOR COMPONENT
+		// Changes an entity's color.
 
 		void ColorComponent::init() {
 			color = sf::Color(245, 255, 125, 255);
@@ -49,6 +51,43 @@ namespace Explodable {
 
 		sf::Color& ColorComponent::getColor() {
 			return color;
+		}
+
+		// BUFFERED AUDIO COMPONENT
+		// Plays audio from a buffer.
+		void BufferedAudioComponent::init(string relativeAudioPath) {
+			if (!buffer.loadFromFile(relativeAudioPath)) {}
+			sound.setBuffer(buffer);
+		}
+
+		void BufferedAudioComponent::update() {}
+
+		void BufferedAudioComponent::play() {
+			sound.play();
+		}
+
+		sf::SoundBuffer& BufferedAudioComponent::getBuffer() {
+			return buffer;
+		}
+
+		sf::Sound& BufferedAudioComponent::getAudio() {
+			return sound;
+		}
+
+		// STREAMED AUDIO COMPONENT
+		// Plays audio from the file specified.
+		void StreamedAudioComponent::init(string relativeAudioPath) {
+			if (!audio.openFromFile(relativeAudioPath)) {}
+		}
+
+		void StreamedAudioComponent::update() {}
+
+		void StreamedAudioComponent::play() {
+			audio.play();
+		}
+
+		sf::Music& StreamedAudioComponent::getAudio() {
+			return audio;
 		}
 	}
 }

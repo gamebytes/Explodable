@@ -2,11 +2,12 @@
 #define EXPLODABLE_COMPONENTS
 	#include "ExplodableComponent.hpp"
 	#include <SFML/Graphics.hpp>
+	#include <SFML/Audio.hpp>
 	namespace Explodable {
 		// Explodable should have core components, that is what this namespace will contain. If you would like to add a core component, go right ahead.
 		class Component;
 		namespace Components {
-			class MovementComponent : public Component {
+			class MovementComponent : public Explodable::Component {
 				public:
 					Explodable::Component* clone() { return new Explodable::Component(*this); }
 					MovementComponent(string name) : Component(name) {}
@@ -25,6 +26,30 @@
 					virtual void update();
 					void setColor(sf::Color color);
 					sf::Color& getColor();
+			};
+			class BufferedAudioComponent : public Explodable::Component {
+				sf::SoundBuffer buffer;
+				sf::Sound sound;
+				public:
+					Explodable::Component* clone() { return new Explodable::Component(*this); }
+					BufferedAudioComponent(string name) : Component(name) {}
+					BufferedAudioComponent(const MovementComponent&);
+					virtual void init(string relativeAudioPath);
+					virtual void update();
+					void play();
+					sf::SoundBuffer& getBuffer();
+					sf::Sound& getAudio();
+			};
+			class StreamedAudioComponent : public Explodable::Component {
+				sf::Music audio;
+				public:
+					Explodable::Component* clone() { return new Explodable::Component(*this); }
+					StreamedAudioComponent(string name) : Component(name) {}
+					StreamedAudioComponent(const MovementComponent&);
+					virtual void init(string relativeAudioPath);
+					virtual void update();
+					void play();
+					sf::Music& getAudio();
 			};
 		}
 	}
