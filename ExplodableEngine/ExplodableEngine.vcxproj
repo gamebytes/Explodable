@@ -72,13 +72,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ExplodableComponent.cpp" />
+    <ClCompile Include="ExplodableComponents.cpp" />
     <ClCompile Include="ExplodableEntity.cpp" />
     <ClCompile Include="ExplodableMain.cpp" />
+    <ClCompile Include="ExplodableShapes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ExplodableComponent.hpp" />
+    <ClInclude Include="ExplodableComponents.hpp" />
     <ClInclude Include="ExplodableEntity.hpp" />
     <ClInclude Include="ExplodableMain.hpp" />
+    <ClInclude Include="ExplodableShapes.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

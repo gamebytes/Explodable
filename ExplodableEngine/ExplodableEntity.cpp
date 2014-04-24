@@ -8,17 +8,22 @@
 
 #include "ExplodableComponent.hpp"
 
+#include "ExplodableShapes.hpp"
+
 #include <SFML/System.hpp>
 
 #include <SFML/Graphics.hpp>
 
+#include <map>
+
+using std::map;
+
 namespace Explodable {
-	Entity::Entity(int x, int y, int size) {
+	Entity::Entity(int x, int y, int size, Shapes::Shape* shape) {
 	   this->x = x;
 	   this->y = y;
 	   this->size = size;
-	   this->shape = sf::CircleShape(80, 8);
-	   shape.setPosition(sf::Vector2f((float)x, (float)y));
+	   this->shape = shape;
 	}
 	void Entity::addComponent(Component* component) {
 		component->initComponent(this);
@@ -43,7 +48,18 @@ namespace Explodable {
 			printf("Component not found.");
 		}
 	}
-	sf::CircleShape& Entity::getShape() {
-		return shape;
+	void Entity::update() {
+		for (map<string, Component*>::iterator i = components.begin(); i != components.end(); ++i) {
+			i->second->update();
+		}
+	}
+	void Entity::dispose() {
+		for (map<string, Component*>::iterator i = components.begin(); i != components.end(); ++i) {
+			delete i->second;
+		}
+		components.clear();
+	}
+	Shapes::Shape& Entity::getShape() {
+		return *shape;
 	}
 }
