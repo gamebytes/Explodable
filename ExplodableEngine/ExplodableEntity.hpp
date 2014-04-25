@@ -27,7 +27,8 @@
 				void dispose();
 				void update();
 				Component* getComponent(string name);
-				Shapes::Shape& getShape();
+				sf::Shape& getShape();
+				sf::Vector2f& getPosition();
 		};
 	}
 #endif

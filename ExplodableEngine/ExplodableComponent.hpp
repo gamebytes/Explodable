@@ -21,6 +21,7 @@
 				// Used to initialize the actual component (i.e. set values.)
 				virtual void init() {}
 				virtual void update() {}
+				virtual void dispose() {}
 				// Used to initialize the internals of the component
 				void initComponent(Entity *entityInst);
 		};

@@ -24,12 +24,14 @@ namespace Explodable {
 			}
 		}
 
+		void MovementComponent::dispose() {}
+
 		void MovementComponent::moveInDirection(int direction, float amount) {
 			if (direction == 0) {
-				entity->getShape().getShape().move(amount, 0);
+				entity->getShape().move(amount, 0);
 			}
 			else {
-				entity->getShape().getShape().move(0, amount);
+				entity->getShape().move(0, amount);
 			}
 		}
 
@@ -44,9 +46,11 @@ namespace Explodable {
 	
 		}
 
+		void ColorComponent::dispose() {}
+
 		void ColorComponent::setColor(sf::Color color) {
 			this->color = color;
-			entity->getShape().getShape().setFillColor(color);
+			entity->getShape().setFillColor(color);
 		}
 
 		sf::Color& ColorComponent::getColor() {
@@ -61,6 +65,10 @@ namespace Explodable {
 		}
 
 		void BufferedAudioComponent::update() {}
+
+		void BufferedAudioComponent::dispose() {
+			sound.stop();
+		}
 
 		void BufferedAudioComponent::play() {
 			sound.play();
@@ -81,6 +89,8 @@ namespace Explodable {
 		}
 
 		void StreamedAudioComponent::update() {}
+
+		void StreamedAudioComponent::dispose() {}
 
 		void StreamedAudioComponent::play() {
 			audio.play();

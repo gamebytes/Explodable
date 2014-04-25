@@ -14,6 +14,7 @@
 					MovementComponent(const MovementComponent&);
 					virtual void init();
 					virtual void update();
+					virtual void dispose();
 					void moveInDirection(int direction, float amount);
 			};
 			class ColorComponent : public Explodable::Component {
@@ -24,6 +25,7 @@
 					ColorComponent(const ColorComponent&);
 					virtual void init();
 					virtual void update();
+					virtual void dispose();
 					void setColor(sf::Color color);
 					sf::Color& getColor();
 			};
@@ -36,6 +38,7 @@
 					BufferedAudioComponent(const MovementComponent&);
 					virtual void init(string relativeAudioPath);
 					virtual void update();
+					virtual void dispose();
 					void play();
 					sf::SoundBuffer& getBuffer();
 					sf::Sound& getAudio();
@@ -48,6 +51,7 @@
 					StreamedAudioComponent(const MovementComponent&);
 					virtual void init(string relativeAudioPath);
 					virtual void update();
+					virtual void dispose();
 					void play();
 					sf::Music& getAudio();
 			};

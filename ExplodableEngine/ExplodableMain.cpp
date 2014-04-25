@@ -11,10 +11,12 @@
 
 namespace Explodable {
 
-	Main::Main(int width, int height, sf::String title) {
+	Main::Main(int width, int height, int antialiasing, sf::String title) {
+		sf::ContextSettings windowSettings;
+		windowSettings.antialiasingLevel = antialiasing;
 		this->width = width;
 		this->height = height;
-		window = new sf::RenderWindow(sf::VideoMode(width, height), title);
+		window = new sf::RenderWindow(sf::VideoMode(width, height), title, sf::Style::Default, windowSettings);
 	}
 
 	void Main::setTitle(sf::String title) {

@@ -14,7 +14,7 @@
 		
 		class Main {
 			// width of window to create, height of window to create, and if vsync is not enabled, a fixed frames per second.
-			int width, height, fixedFPS;
+			int width, height, fixedFPS, antialiasing;
 			// the title of the window.
 			sf::String title;
 			// enable or disable vsync, as well as toggle fullscreen.
@@ -23,7 +23,7 @@
 			sf::RenderWindow* window;
 		
 			public:
-				Main(int width, int height, sf::String title);
+				Main(int width, int height, int antialiasing, sf::String title);
 				void setTitle(sf::String);
 				void setFullscreen(bool fullscreen);
 				void setVsync(bool vsync);
