@@ -1,25 +1,26 @@
 #include "ExplodableComponents.hpp"
 #include "ExplodableEntity.hpp"
+#include "ExplodableInput.hpp"
 
 namespace Explodable {
 	namespace Components {
 		// MOVEMENT COMPONENT
 		// Allow's entity movement.
-		void MovementComponent::init() {
-	
+		void MovementComponent::init(Input keys) {
+			this->keys = keys;
 		}
 
 		void MovementComponent::update() {
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			if (sf::Keyboard::isKeyPressed(keys.getBinding("forward"))) {
 				moveInDirection(1, -0.5f);
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+			if (sf::Keyboard::isKeyPressed(keys.getBinding("backward"))) {
 				moveInDirection(1, 0.5f);
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+			if (sf::Keyboard::isKeyPressed(keys.getBinding("left"))) {
 				moveInDirection(0, -0.5f);
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+			if (sf::Keyboard::isKeyPressed(keys.getBinding("right"))) {
 				moveInDirection(0, 0.5f);
 			}
 		}

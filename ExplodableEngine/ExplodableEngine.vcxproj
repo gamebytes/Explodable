@@ -74,6 +74,7 @@
     <ClCompile Include="ExplodableComponent.cpp" />
     <ClCompile Include="ExplodableComponents.cpp" />
     <ClCompile Include="ExplodableEntity.cpp" />
+    <ClCompile Include="ExplodableInput.cpp" />
     <ClCompile Include="ExplodableMain.cpp" />
     <ClCompile Include="ExplodableShapes.cpp" />
   </ItemGroup>
@@ -81,6 +82,7 @@
     <ClInclude Include="ExplodableComponent.hpp" />
     <ClInclude Include="ExplodableComponents.hpp" />
     <ClInclude Include="ExplodableEntity.hpp" />
+    <ClInclude Include="ExplodableInput.hpp" />
     <ClInclude Include="ExplodableMain.hpp" />
     <ClInclude Include="ExplodableShapes.hpp" />
   </ItemGroup>

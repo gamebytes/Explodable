@@ -1,18 +1,21 @@
 #ifndef EXPLODABLE_COMPONENTS
 #define EXPLODABLE_COMPONENTS
 	#include "ExplodableComponent.hpp"
+	#include "ExplodableInput.hpp"
 	#include <SFML/Graphics.hpp>
 	#include <SFML/Audio.hpp>
 	namespace Explodable {
 		// Explodable should have core components, that is what this namespace will contain. If you would like to add a core component, go right ahead.
 		class Component;
+		class Input;
 		namespace Components {
 			class MovementComponent : public Explodable::Component {
+				Input keys;
 				public:
 					Explodable::Component* clone() { return new Explodable::Component(*this); }
 					MovementComponent(string name) : Component(name) {}
 					MovementComponent(const MovementComponent&);
-					virtual void init();
+					virtual void init(Input keys);
 					virtual void update();
 					virtual void dispose();
 					void moveInDirection(int direction, float amount);
