@@ -14,7 +14,9 @@
 	using std::string;
 	using std::map;
 	namespace Explodable {
-		class Shapes::Shape;
+		namespace Shapes {
+			class Shape;
+		}
 		class Entity {
 			int x, y, size;
 			Shapes::Shape* shape;
