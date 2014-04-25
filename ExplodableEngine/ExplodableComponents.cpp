@@ -100,5 +100,37 @@ namespace Explodable {
 		sf::Music& StreamedAudioComponent::getAudio() {
 			return audio;
 		}
+
+		// LIGHTING COMPONENT
+		// Half assed lighting is great
+		void LightingComponent::init(sf::Color color, float radius) {
+			color.a = 50;
+			light = new sf::CircleShape(radius);
+			light->setFillColor(color);
+			light->setPosition(entity->getPosition());
+		}
+
+		void LightingComponent::update() {}
+
+		void LightingComponent::setColor(sf::Color color) {
+			this->color = color;
+			light->setFillColor(color);
+		}
+
+		void LightingComponent::setPosition(float x, float y) {
+			light->setPosition(x, y);
+		}
+
+		void LightingComponent::dispose() {
+			delete light;
+		}
+
+		sf::Color& LightingComponent::getColor() {
+			return color;
+		}
+
+		sf::CircleShape& LightingComponent::getLight() {
+			return *light;
+		}
 	}
 }

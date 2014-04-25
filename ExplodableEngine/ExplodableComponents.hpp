@@ -58,6 +58,21 @@
 					void play();
 					sf::Music& getAudio();
 			};
+			class LightingComponent : public Explodable::Component {
+				sf::CircleShape* light;
+				sf::Color color;
+				public:
+					Explodable::Component* clone() { return new Explodable::Component(*this); }
+					LightingComponent(string name) : Component(name) {}
+					LightingComponent(const LightingComponent&);
+					virtual void init(sf::Color lightColor, float lightRadius);
+					virtual void update();
+					virtual void dispose();
+					void setColor(sf::Color color);
+					void setPosition(float x, float y);
+					sf::Color& getColor();
+					sf::CircleShape& getLight();
+			};
 		}
 	}
 #endif
