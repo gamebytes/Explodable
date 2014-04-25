@@ -28,4 +28,4 @@ Only include the DLL's with -d if you are using the debug libs from SFML.
 Use
 ==========
 
-Explodable was written in Visual Studio, therefor, I've included the Visual Studio project files. Meaning you should be able to just open the sln file to get started. (I haven't tested this so it may not work.). You might also have to use VS Express 2012, but I have no clue if that is true.
+Explodable was written in Visual Studio, therefore, I've included the Visual Studio project files. Meaning you should be able to just open the sln file to get started. (I haven't tested this so it may not work). You might also have to use VS Express 2012, but I have no clue if that is true.
