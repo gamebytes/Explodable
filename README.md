@@ -1,7 +1,7 @@
 ![Explodable](http://i.imgur.com/2F0w1IU.png)
 ==========
 
-A C++ engine that uses SFML. Made for use in LD29.
+A C++ engine that uses SFML. Made for use in LD29. Logo created by [JordanFitz](http://jordanfitz.com).
 
 Requirements
 ==========
