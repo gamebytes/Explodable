@@ -1,7 +1,7 @@
 /*
 	Explodable
 	An Engine By Tinfoilboy
-	Tinfoilboy © 2014
+	Tinfoilboy ï¿½ 2014
 */
 
 #include "ExplodableEntity.hpp"
@@ -49,6 +49,7 @@ namespace Explodable {
 		}
 		else {
 			printf("Component not found.");
+            return NULL; // Fixed the "Control may reach end of non-void function" warning.
 		}
 	}
 
@@ -70,7 +71,7 @@ namespace Explodable {
 		return shape->getShape();
 	}
 
-	sf::Vector2f& Entity::getPosition() {
+	sf::Vector2f Entity::getPosition() {
 		return sf::Vector2f(x, y);
 	}
 }

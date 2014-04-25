@@ -1,7 +1,7 @@
 /*
 	Explodable
 	An Engine By Tinfoilboy
-	Tinfoilboy © 2014
+	Tinfoilboy ï¿½ 2014
 */
 #ifndef EXPLODABLE_ENTITY
 #define EXPLODABLE_ENTITY
@@ -30,7 +30,8 @@
 				void update();
 				Component* getComponent(string name);
 				sf::Shape& getShape();
-				sf::Vector2f& getPosition();
+                // The only way I could think of fixing this is to remove the dereference.
+				sf::Vector2f getPosition();
 		};
 	}
 #endif
