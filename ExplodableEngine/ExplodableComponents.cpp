@@ -6,9 +6,11 @@ namespace Explodable {
 	namespace Components {
 		// MOVEMENT COMPONENT
 		// Allow's entity movement.
-		void MovementComponent::init(Input keys) {
+		MovementComponent::MovementComponent(Input keys) {
+			this->name = name;
 			this->keys = keys;
 		}
+		void MovementComponent::init() {}
 
 		void MovementComponent::update() {
 			if (sf::Keyboard::isKeyPressed(keys.getBinding("forward"))) {
@@ -38,7 +40,7 @@ namespace Explodable {
 
 		// COLOR COMPONENT
 		// Changes an entity's color.
-
+		ColorComponent::ColorComponent() {}
 		void ColorComponent::init() {
 			color = sf::Color(245, 255, 125, 255);
 		}
@@ -60,10 +62,12 @@ namespace Explodable {
 
 		// BUFFERED AUDIO COMPONENT
 		// Plays audio from a buffer.
-		void BufferedAudioComponent::init(string relativeAudioPath) {
+		BufferedAudioComponent::BufferedAudioComponent(string relativeAudioPath) {
+			this->name = name;
 			if (!buffer.loadFromFile(relativeAudioPath)) {}
 			sound.setBuffer(buffer);
 		}
+		void BufferedAudioComponent::init() {}
 
 		void BufferedAudioComponent::update() {}
 
@@ -85,9 +89,11 @@ namespace Explodable {
 
 		// STREAMED AUDIO COMPONENT
 		// Plays audio from the file specified.
-		void StreamedAudioComponent::init(string relativeAudioPath) {
+		StreamedAudioComponent::StreamedAudioComponent(string relativeAudioPath) {
+			this->name = name;
 			if (!audio.openFromFile(relativeAudioPath)) {}
 		}
+		void StreamedAudioComponent::init() {}
 
 		void StreamedAudioComponent::update() {}
 
@@ -103,10 +109,13 @@ namespace Explodable {
 
 		// LIGHTING COMPONENT
 		// Half assed lighting is great
-		void LightingComponent::init(sf::Color color, float radius) {
+		LightingComponent::LightingComponent(sf::Color color, float radius) {
+			this->name = name;
 			color.a = 50;
 			light = new sf::CircleShape(radius);
 			light->setFillColor(color);
+		}
+		void LightingComponent::init() {
 			light->setPosition(entity->getPosition());
 		}
 

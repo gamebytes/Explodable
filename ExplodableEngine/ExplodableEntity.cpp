@@ -24,11 +24,19 @@ namespace Explodable {
 	   this->y = y;
 	   this->size = size;
 	   this->shape = shape;
+	   invisible = false;
 	}
 
-	void Entity::addComponent(Component* component) {
+	Entity::Entity(int x, int y) {
+	   this->x = x;
+	   this->y = y;
+	   invisible = true;
+	}
+
+	void Entity::addComponent(string name, Component* component) {
 		component->initComponent(this);
-		components[component->name] = component;
+		component->init();
+		components[name] = component;
 	}
 
 	void Entity::removeComponent(string name) {
@@ -42,6 +50,15 @@ namespace Explodable {
 		}
 	}
 
+	bool Entity::hasComponent(string name) {
+		if (components.count(name) != 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 	Component* Entity::getComponent(string name) {
 		if (components.count(name) != 0) {
 			return components[name];
@@ -49,7 +66,7 @@ namespace Explodable {
 		}
 		else {
 			printf("Component not found.");
-            return NULL; // Fixed the "Control may reach end of non-void function" warning.
+			return NULL; // Fixed the "Control may reach end of non-void function" warning.
 		}
 	}
 
@@ -72,6 +89,6 @@ namespace Explodable {
 	}
 
 	sf::Vector2f Entity::getPosition() {
-		return sf::Vector2f(x, y);
+		return sf::Vector2f((float)x, (float)y);
 	}
 }

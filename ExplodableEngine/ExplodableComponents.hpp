@@ -5,7 +5,7 @@
 	#include <SFML/Graphics.hpp>
 	#include <SFML/Audio.hpp>
 	namespace Explodable {
-		// Explodable should have core components, that is what this namespace will contain. If you would like to add a core component, go right ahead.
+		// Explodable should have core components, that is what this space will contain. If you would like to add a core component, go right ahead.
 		class Component;
 		class Input;
 		namespace Components {
@@ -13,9 +13,9 @@
 				Input keys;
 				public:
 					Explodable::Component* clone() { return new Explodable::Component(*this); }
-					MovementComponent(string name) : Component(name) {}
+					MovementComponent(Input keys);
 					MovementComponent(const MovementComponent&);
-					virtual void init(Input keys);
+					virtual void init();
 					virtual void update();
 					virtual void dispose();
 					void moveInDirection(int direction, float amount);
@@ -24,7 +24,7 @@
 				sf::Color color;
 				public:
 					Explodable::Component* clone() { return new Explodable::Component(*this); }
-					ColorComponent(string name) : Component(name) {}
+					ColorComponent();
 					ColorComponent(const ColorComponent&);
 					virtual void init();
 					virtual void update();
@@ -37,9 +37,9 @@
 				sf::Sound sound;
 				public:
 					Explodable::Component* clone() { return new Explodable::Component(*this); }
-					BufferedAudioComponent(string name) : Component(name) {}
+					BufferedAudioComponent(string relativeAudioPath);
 					BufferedAudioComponent(const MovementComponent&);
-					virtual void init(string relativeAudioPath);
+					virtual void init();
 					virtual void update();
 					virtual void dispose();
 					void play();
@@ -50,9 +50,9 @@
 				sf::Music audio;
 				public:
 					Explodable::Component* clone() { return new Explodable::Component(*this); }
-					StreamedAudioComponent(string name) : Component(name) {}
+					StreamedAudioComponent(string relativeAudioPath);
 					StreamedAudioComponent(const MovementComponent&);
-					virtual void init(string relativeAudioPath);
+					virtual void init();
 					virtual void update();
 					virtual void dispose();
 					void play();
@@ -63,9 +63,9 @@
 				sf::Color color;
 				public:
 					Explodable::Component* clone() { return new Explodable::Component(*this); }
-					LightingComponent(string name) : Component(name) {}
+					LightingComponent(sf::Color lightColor, float lightRadius);
 					LightingComponent(const LightingComponent&);
-					virtual void init(sf::Color lightColor, float lightRadius);
+					virtual void init();
 					virtual void update();
 					virtual void dispose();
 					void setColor(sf::Color color);

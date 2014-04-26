@@ -17,7 +17,6 @@
 				Entity* entity;
 				string name;
 				Component() { name = "NO NAMED COMPONENT."; }
-				Component(string name) { this->name = name; }
 				// Used to initialize the actual component (i.e. set values.)
 				virtual void init() {}
 				virtual void update() {}
